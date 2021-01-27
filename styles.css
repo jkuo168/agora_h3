@@ -52,8 +52,12 @@ input {
   margin-bottom: 30px;
 }
 
-#participant-text {
+#participant-container {
   margin-bottom: 20px;
+}
+
+#participants-text {
+  margin-bottom: 10px;
 }
 
 .participant-name {
@@ -74,7 +78,7 @@ input {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 40%;
+  margin-top: 20%;
 }
 
 #welcome-name {
@@ -116,4 +120,14 @@ input {
   min-width: 400px;
   height: 200px;
   margin-right: 10px;
+}
+
+#exit {
+  color: white;
+  background-color: #099dfd;
+  border: 2px solid #099dfd;
+  border-radius: 4px;
+  padding: 5px;
+  width: 40%;
+  margin-bottom: 30px;
 }

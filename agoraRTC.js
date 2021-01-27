@@ -31,8 +31,8 @@ let addVideoStream = (streamID) => {
   childContainer.appendChild(remoteContainer);
   parentContainer.appendChild(childContainer);
 
-  // add participant to container
-  let participantContainer = document.getElementById("left-pane-info");
+  // add participant's name to container
+  let participantContainer = document.getElementById("participant-container");
   let newParticipant = document.createElement("div");
   newParticipant.className = "participant-name";
   newParticipant.innerHTML = streamID;
@@ -89,8 +89,12 @@ document.getElementById("join").onclick = () => {
 
     // initialize a stream
     localStream.init(() => {
-      // remote welcome text
+      console.log("JOINING");
+      // remove welcome text
       document.getElementById("welcome-text").style.display = "none";
+
+      // remove login
+      document.getElementById("login-info").style.display = "none";
 
       // create main frame name
       let mainFrameName = document.createElement("div");
@@ -110,13 +114,49 @@ document.getElementById("join").onclick = () => {
       // add name to main frame
       mainFrameName.innerHTML = localStream.getId();
 
+      // add exit button
+      let exitButton = document.createElement("button");
+      exitButton.innerHTML = "Exit";
+      exitButton.id = "exit";
+      document.getElementById("left-pane-info").appendChild(exitButton);
+      document.getElementById("exit").onclick = () => {
+        // add welcome text
+        document.getElementById("welcome-text").style.display = "";
+        // add login
+        document.getElementById("login-info").style.display = "";
+        // remove participants
+        document.getElementById("participant-container").style.display = "none";
+        // remove main frame and name and child frames if there are any
+        document.getElementById("main-frame-name").remove();
+        document.getElementById("main-frame").remove();
+        if (document.getElementById("child-frames")) {
+          document.getElementById("child-frames").remove();
+        }
+        // remove exit button
+        document.getElementById("exit").remove();
+
+        // leave the stream
+        localStream.close();
+        client.leave();
+      };
+
       // add name to participant list
-      document.getElementById("participant-text").innerHTML = "Participants";
-      let participantContainer = document.getElementById("left-pane-info");
+      let participantContainer = document.createElement("div");
+      participantContainer.id = "participant-container";
+
+      let participantText = document.createElement("div");
+      participantText.id = "participants-text";
+      participantText.innerHTML = "Participants:";
+      participantContainer.appendChild(participantText);
+
       let newParticipant = document.createElement("div");
       newParticipant.className = "participant-name";
       newParticipant.innerHTML = localStream.getId();
       participantContainer.appendChild(newParticipant);
+
+      document
+        .getElementById("left-pane-info")
+        .appendChild(participantContainer);
     });
   });
 
