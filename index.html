@@ -1,0 +1,34 @@
+<html>
+    <head>
+        <title>Agora HW 3</title>
+        <link rel="stylesheet" href="styles.css"/>
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <div id="flex-container">
+            <div id="left-pane">
+                <div id="logo-div">
+                    <img id="logo-img" src="assets/agoraLogo.png" href="agoraLogo"/>
+                </div>
+                <div id="left-pane-info">
+                    <div id="join-text">Join A Chat!</div>
+                    <input id="username" type="text" placeholder="username"/>
+                    <br/>
+                    <input id="channel" type="text" placeholder="channel"/>
+                    <br/>
+                    <button id="join">Join</button>
+                    <div id="participant-text">Participants</div>
+                </div>
+            </div>
+            <div id="right-pane">
+                <div id="main-frame">  
+                </div>
+                <div id="child-frames">
+                </div>
+            </div>
+        </div>
+        <script src="https://cdn.agora.io/sdk/release/AgoraRTCSDK-3.0.0.js"></script>
+        <script src="agoraRTC.js"></script>
+    </body>
+</html>
