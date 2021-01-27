@@ -3,6 +3,10 @@ body {
   font-family: "Montserrat", sans-serif;
 }
 
+.incorrect {
+  border: 2px solid red;
+}
+
 #flex-container {
   display: flex;
 }
@@ -64,12 +68,35 @@ input {
   width: 80%;
 }
 
+#welcome-text {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40%;
+}
+
+#welcome-name {
+  color: #099dfd;
+  font-size: xxx-large;
+  margin-bottom: 5px;
+}
+
+#welcome-info {
+  font-size: small;
+}
+
+#main-frame-name {
+  margin-top: 100px;
+  font-size: smaller;
+}
+
 #main-frame {
   width: 90%;
   height: 50%;
   border: 2px solid #099dfd;
   border-radius: 5px;
-  margin-top: 100px;
   margin-bottom: 10px;
 }
 
@@ -88,5 +115,5 @@ input {
   width: 70%;
   min-width: 400px;
   height: 200px;
-  margin: 10px;
+  margin-right: 10px;
 }
